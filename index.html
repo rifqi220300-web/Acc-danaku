@@ -7,6 +7,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        {
+            box-sizing: border-box; /* Menghitung padding ke dalam lebar total */
+        }
         @page {
             size: A4;
             margin: 0;
@@ -48,7 +51,8 @@
             padding: 0;
             line-height: 1.6;
             background-color: var(--white);
-            overflow-x: hidden; /* Mencegah scroll horizontal saat animasi */
+            overflow-x: hidden;
+            position: relative;/* Mencegah scroll horizontal saat animasi */
         }
 
         /* --- NAVBAR --- */
@@ -359,9 +363,11 @@
             }
             .navbar {
                 padding: 0 20px;
+                width: fit-content;
             }
             .nav-links {
                 gap: 10px;
+                padding: 0 15px;
             }
         }
     </style>
