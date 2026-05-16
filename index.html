@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Landing Page Marketing Astra Finance - Rifqi</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,6 +12,15 @@
             margin: 0;
             background-color: #ffffff;
         }
+
+        section, header, footer, .product-grid, .workflow, .contact-container {
+    width: 100%;
+    overflow: hidden; /* Memotong 'ekor' animasi agar tidak menarik layar */
+}
+
+        * {
+            box-sizing: border-box; /* Menghitung padding ke dalam lebar total */
+            }
 
         :root {
             /* Perubahan Warna Eksklusif: Biru Midnight & Oranye Tembaga */
@@ -44,11 +53,13 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--text-dark);
+            max-width: 100%;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             background-color: var(--white);
-            overflow-x: hidden; /* Mencegah scroll horizontal saat animasi */
+            overflow-x: hidden; 
+            position: relative;/* Mencegah scroll horizontal saat animasi */
         }
 
         /* --- NAVBAR --- */
@@ -358,11 +369,16 @@
                 text-align: center;
             }
             .navbar {
-                padding: 0 20px;
-            }
+        padding: 0 15px;
+        width: 100%; /* Dipaksa mengikuti lebar layar, bukan fit-content */
+        display: flex;
+        justify-content: space-between;
+    }
             .nav-links {
-                gap: 10px;
-            }
+        gap: 8px;
+        width: auto; /* Mengikuti konten secara proporsional */
+        max-width: 80%; /* Mencegah menu mendorong navbar keluar layar */
+    }
         }
     </style>
 </head>
