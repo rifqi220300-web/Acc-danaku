@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Marketing Astra Finance - Rifqi</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        :root {
+            /* Perubahan Warna Eksklusif: Biru Midnight & Oranye Tembaga */
+            --astra-blue: #002347; 
+            --astra-blue-dark: #001529;
+            --astra-orange: #d45d12;
+            
+            /* Gradasi Premium Baru */
+            --premium-gradient: linear-gradient(135deg, #001529 0%, #003366 100%);
+            --orange-gradient: linear-gradient(135deg, #f37021 0%, #a64500 100%);
+            
+            --bg-gradient-light: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            
+            --white: #ffffff;
+            --text-dark: #0f172a;
+            --text-light: #475569;
+            --bg-light: #f8fafc;
+        }
+
+        /* Animasi Muncul Pertama Kali (Initial Load) */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden; /* Mencegah scroll horizontal saat animasi */
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+    background: var(--astra-orange);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+        .logo {
+            font-size: 16pt;
+            font-weight: bold;
+            color: var(--astra-blue);
+        }
+
+        .logo span {
+            color: var(--astra-orange);
+        }
+
+        .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    font-weight: 600;
+    font-size: 9pt;
+    padding: 10px 20px; /* Memberi ruang untuk background orange */
+    margin: 0;
+    background: var(--astra-orange); /* Perubahan: Background menjadi Orange */
+    border-radius: 8px; /* Memberikan kesan visual yang lebih halus (smooth) */
+}
+
+        .nav-links li a {
+    text-decoration: none;
+    color: var(--astra-blue); /* Perubahan: Warna teks awal sebelum hover menjadi Biru */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+        .nav-links li a:hover {
+    color: var(--white); /* Perubahan: Warna teks saat di-hover menjadi Putih */
+}
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: var(--premium-gradient);
+            color: var(--white);
+            padding: 50px 40px 80px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out; /* Animasi muncul */
+        }
+
+        .hero h1 {
+            font-size: 24pt;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 11pt;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* --- PROFILE CARD --- */
+        .profile-section {
+            margin-top: -40px;
+            padding: 0 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            background: var(--white);
+            width: 70%;
+            max-width: 600px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            animation: fadeInUp 1.2s ease-out; /* Animasi muncul */
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            background-image: url('FOTO-IKI.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #e2e8f0; 
+            border-radius: 50%;
+            border: 3px solid var(--astra-blue);
+        }
+
+        .profile-info h2 {
+            margin: 0;
+            color: var(--astra-blue);
+            font-size: 16pt;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: var(--orange-gradient);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 8pt;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        /* --- PRODUCTS --- */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 25px;
+        }
+
+        .section-title h2 {
+            font-size: 18pt;
+            color: var(--astra-blue-dark);
+            display: inline-block;
+            border-bottom: 3px solid var(--astra-orange);
+            padding-bottom: 5px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 40px;
+        }
+
+        .product-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--astra-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            color: var(--astra-blue);
+            font-size: 12pt;
+            margin-bottom: 10px;
+        }
+
+        /* --- WORKFLOW --- */
+        .workflow {
+            background: #f1f5f9;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .step {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .step-num {
+            width: 35px;
+            height: 35px;
+            background: var(--astra-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+        }
+
+        .contact-info {
+            background: var(--premium-gradient);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+        }
+
+        .contact-details a {
+            color: #ff8c42;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-wa {
+            display: block;
+            background: #25d366;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 10pt;
+            transition: background 0.3s ease;
+        }
+
+        .btn-wa:hover {
+            background: #1ebd54;
+        }
+
+        .form-card {
+            background: var(--white);
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-card h4 {
+            margin-top: 0;
+            color: var(--astra-blue);
+            font-size: 14pt;
+            margin-bottom: 15px;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 8pt; font-weight: 600; margin-bottom: 6px; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 9pt;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--astra-blue);
+        }
+
+        .submit-btn {
+            background: var(--orange-gradient);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 5px;
+            font-size: 10pt;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .footer {
+            padding: 25px 40px;
+            font-size: 8pt;
+            color: var(--text-light);
+            border-top: 1px solid #e2e8f0;
+            background: #fafafa;
+            text-align: justify;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .profile-card {
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+            }
+            .navbar {
+                padding: 0 20px;
+            }
+            .nav-links {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo-acc.png" alt="Logo ACC Danaku" style="height: 40px; width: auto; display: block;">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#workflow">Workflow</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1 data-aos="fade-down">Solusi Finansial Premium <br> Terpercaya dari Astra</h1>
+        <p data-aos="fade-up">Pendanaan yang logis, akademis, dan sesuai regulasi hukum finansial Indonesia.</p>
+    </header>
+
+    <section id="profil" class="profile-section">
+        <div class="profile-card">
+            <div class="profile-img"></div>
+            <div class="profile-info">
+                <h2>Muhammad Rifqi Marhaen</h2>
+                <p style="margin: 3px 0; color: var(--text-light); font-size: 9pt;">Credit Retention Canvasing</p>
+                <div class="achievement-badge">Siap Membantu dimanapun anda berada</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produk" class="section-title" data-aos="fade-up">
+        <h2>Produk & Layanan</h2>
+    </section>
+
+    <div class="product-grid">
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-solid fa-car-side" style="font-size: 40px; color: var(--astra-orange); margin-bottom: 15px;"></i>
+            <h3>Pendanaan BPKB Mobil</h3>
+            <p style="font-size: 9pt; color: var(--text-light); margin: 0;">Proses transmisi data cepat dengan plafon cair tinggi.</p>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-solid fa-gem" style="font-size: 40px; color: var(--astra-orange); margin-bottom: 15px;"></i>
+            <h3>Logam Mulia Antam</h3>
+            <p style="font-size: 9pt; color: var(--text-light); margin: 0;">Cicilan emas batangan sebagai instrumen investasi aman dari risiko inflasi.</p>
+        </div>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-kaaba" style="font-size: 40px; color: var(--astra-orange); margin-bottom: 15px;"></i>
+            <h3>Pendanaan Porsi Haji</h3>
+            <p style="font-size: 9pt; color: var(--text-light); margin: 0;">Pembiayaan porsi haji untuk percepatan pendaftaran niat suci Anda.</p>
+        </div>
+    </div>
+
+    <section id="workflow" class="workflow">
+        <div class="section-title" style="margin-top: 0;" data-aos="fade-up">
+            <h2>Workflow Pengajuan</h2>
+        </div>
+        <div class="workflow-steps">
+            <div class="step" data-aos="zoom-in" data-aos-delay="100">
+                <div class="step-num">1</div>
+                <h4 style="font-size: 10pt; margin-bottom: 5px; margin-top: 0;">Konsultasi</h4>
+                <p style="font-size: 8pt; margin: 0; color: var(--text-light);">Diskusi kebutuhan finansial via WA atau Gmail.</p>
+            </div>
+            <div class="step" data-aos="zoom-in" data-aos-delay="200">
+                <div class="step-num">2</div>
+                
+                <h4 style="font-size: 10pt; margin-bottom: 5px; margin-top: 0;">Verifikasi</h4>
+                <p style="font-size: 8pt; margin: 0; color: var(--text-light);">Analisis kelayakan berkas data sesuai dengan SOP.</p>
+            </div>
+            <div class="step" data-aos="zoom-in" data-aos-delay="300">
+                <div class="step-num">3</div>
+                <h4 style="font-size: 10pt; margin-bottom: 5px; margin-top: 0;">Persetujuan</h4>
+                <p style="font-size: 8pt; margin: 0; color: var(--text-light);">Penandatanganan akad kontrak transaksi resmi.</p>
+            </div>
+            <div class="step" data-aos="zoom-in" data-aos-delay="400">
+                <div class="step-num">4</div>
+                <h4 style="font-size: 10pt; margin-bottom: 5px; margin-top: 0;">Realisasi</h4>
+                <p style="font-size: 8pt; margin: 0; color: var(--text-light);">Pencairan dana tunai.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="contact-container">
+        <div class="contact-info" data-aos="fade-right">
+            <div>
+                <h3 style="margin-top: 0; font-size: 16pt;">Hubungi Saya</h3>
+                <p style="font-size: 10pt; opacity: 0.9; margin-bottom: 25px;">
+                    Siap memberikan solusi penasihat finansial yang responsif.
+                </p>
+                <div class="contact-details" style="font-size: 10pt;">
+                    <p><strong>Email:</strong> <a href="mailto:rifqi220300@gmail.com">rifqi220300@gmail.com</a></p>
+                    <p><strong>WhatsApp:</strong> 083190461929</p>
+                </div>
+            </div>
+            <a href="https://wa.me/6283190461929?text=Halo%20Pak%20Rifqi,%20saya%20ingin%20konsultasi%20mengenai%20produk%20Astra%20Finance." target="_blank" class="btn-wa">Chat WhatsApp Sekarang</a>
+        </div>
+
+        <div class="form-card" data-aos="fade-left">
+            <h4>Form Pengajuan Layanan</h4>
+            <form id="submissionForm">
+                <div class="form-group">
+                    <label for="clientName">Nama Lengkap (Sesuai KTP)</label>
+                    <input type="text" id="clientName" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="productSelect">Pilih Produk Finansial</label>
+                    <select id="productSelect" required>
+                        <option value="" disabled selected>-- Pilih Jenis Layanan --</option>
+                        <option value="Pendanaan BPKB Mobil">Pendanaan BPKB Mobil</option>
+                        <option value="Cicilan Logam Mulia Antam">Cicilan Logam Mulia Antam</option>
+                        <option value="Pendanaan Porsi Haji">Pendanaan Porsi Haji</option>
+                    </select>
+                </div>
+                <button type="button" onclick="sendToWhatsApp()" class="submit-btn">Kirim Sekarang</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="legal-text">
+                <p><strong>Astra Finance Compliance Statement:</strong></p>
+                <p>Rifqi adalah agen marketing resmi yang terdaftar. Seluruh proses transmisi (pengiriman) data dan transaksi finansial tunduk pada aturan hukum PT Astra Sedaya Finance / PT Sanado Utama Finance dan entitas Astra Financial lainnya yang berizin dan diawasi oleh <strong>Otoritas Jasa Keuangan (OJK)</strong>.</p>
+                <p>Kami menerapkan prinsip APU-PPT (Anti Pencucian Uang dan Pencegahan Pendanaan Terorisme) dalam setiap prosedur peninjauan client.</p>
+            </div>
+            <div class="legal-badges">
+                <span class="badge-ojk">Diawasi oleh OJK</span>
+                <span class="badge-astra">Member of ASTRA</span>
+            </div>
+            <hr class="footer-divider">
+            <p class="copyright">&copy; 2026 Astra Finance Marketing - Rifqi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS
+        AOS.init({
+            duration: 1000, // Durasi animasi dalam ms
+            once: false,    // Setel ke 'false' agar animasi aktif lagi saat scroll up/down
+            mirror: true    // Elemen akan beranimasi keluar/masuk saat di-scroll bolak-balik
+        });
+
+        function sendToWhatsApp() {
+            const nameInput = document.getElementById('clientName').value.trim();
+            const productSelect = document.getElementById('productSelect').value;
+
+            if (nameInput === "" || productSelect === "") {
+                alert("Mohon lengkapi Nama dan Pilih Produk terlebih dahulu sebelum mengirim pengajuan.");
+                return;
+            }
+
+            const nomorTarget = "6283190461929"; 
+            const teksPesan = "Halo Pak Rifqi, saya ingin mengajukan permohonan layanan finansial.%0A%0A" + 
+                              "*Detail Pengajuan:*%0A" + 
+                              "- Nama: " + encodeURIComponent(nameInput) + "%0A" + 
+                              "- Produk: " + encodeURIComponent(productSelect) + "%0A%0A" +
+                              "Mohon info langkah proses verifikasi selanjutnya. Terima kasih.";
+
+            window.open("https://wa.me/" + nomorTarget + "?text=" + teksPesan, "_blank");
+        }
+    </script>
+
+</body>
+</html>
